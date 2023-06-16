@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Project Ver 1.0</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='WebProject_00.css') }}">
+</head>
+<body>
+  <div class="container">
+  	<div class="Title">
+  		<h1 class="third"><span>Mini Project Ver 1.0</span></h1>
+  	</div>
+    <div class="LED_header">
+      <h2 class="third"><span>LED Controller</span></h2>
+    </div>
+    <div class="LED_main">
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d red" onclick="led_red()">RED ON</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d green" onclick="led_green()">GREEN ON</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d blue" onclick="led_blue()">BLUE ON</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d red" onclick="led_onlyred()">RED ONLY</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d green" onclick="led_onlygreen()">GREEN ONLY</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d blue" onclick="led_onlyblue()">BLUE ONLY</a>
+      </div>
+      <div style="float: left; width: 50%;">
+        <a href="#" class="btn-3d yellow" onclick="led_all()">ALL LED ON</a>
+      </div>
+      <div style="float: left; width: 50%;">
+        <a href="#" class="btn-3d purple" onclick="led_off()">LED OFF</a>
+      </div>
+    </div>
+    <div class="Blank_header1">
+      <h6><span>&emsp;</span></h6>
+    </div>
+    <div class="Ultra_header">
+      <h2 class="third"><span>Ultrasonic Controller</span></h2>
+    </div>
+    <div class="Ultra_main">
+      <div style="float: left; width: 50%;">
+        <a href="#" class="btn-3d red" onclick="ultra_on()">Ultrasonic ON</a>
+      </div>
+      <div style="float: left; width: 50%;">
+        <a href="#" class="btn-3d cyan" onclick="ultra_off()">Ultrasonic OFF</a>
+      </div>
+    </div>
+    <div class="Blank_header2">
+      <h6><span>&emsp;</span></h6>
+    </div>
+    <div class="BUZZ_header">
+      <h2 class="third"><span>Buzzer Controller</span></h2>
+    </div>
+    <div class="BUZZ_main">
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d red" onclick="buzz_on()">Buzzer ON</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d green" onclick="buzz_school()">Music ON</a>
+      </div>
+      <div style="float: left; width: 33%;">
+        <a href="#" class="btn-3d cyan" onclick="buzz_off()">Buzzer OFF</a>
+      </div>
+    </div>
+    <div class="Blank_header3">
+      <h6><span>&emsp;</span></h6>
+    </div>
+    <div class="third" id="result">
+    </div>
+  </div>
+  <script>
+  	function led_red(){
+    	fetch("/led/red")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>RED LED is running</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_green(){
+    	fetch("/led/green")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>GREEN LED is running</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_blue(){
+    	fetch("/led/blue")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>BLUE LED is running</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_onlyred(){
+    	fetch("/led/onlyred")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>RED LED is running only</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_onlygreen(){
+    	fetch("/led/onlygreen")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>GREEN LED is running only</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_onlyblue(){
+    	fetch("/led/onlyblue")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>BLUE LED is running only</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_all(){
+    	fetch("/led/all")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>ALL LED is running</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function led_off(){
+    	fetch("/led/off")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>LED is stopped</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function ultra_on(){
+    	fetch("/ultra/on")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+          result.innerHTML = "<h1>Ultrasonic ON</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function ultra_off(){
+    	fetch("/ultra/off")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>Ultrasonic OFF</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function buzz_on(){
+    	fetch("/buzz/on")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>Buzzer ON</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function buzz_school(){
+    	fetch("/buzz/school")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="sk"){
+        	result.innerHTML = "<h1>학교종이 땡땡땡</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+    function buzz_off(){
+    	fetch("/buzz/off")
+      .then(response=> response.text())
+      .then(data=> {
+      	console.log(data);
+        let result = document.querySelector("#result");
+        if(data=="ok"){
+        	result.innerHTML = "<h1>Buzzer OFF</h1>";
+        }
+        else{
+        	result.innerHTML = "<h1>error</h1>";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
